@@ -4,12 +4,13 @@ const morgan = require("morgan");
 const { NODE_ENV } = require("./config");
 const FolderRouter = require("./Folder/folders-router");
 const NoteRouter = require("./Notes/notes-router");
-
+const cors = require("cors");
 const app = express();
 
 const morganOption = NODE_ENV === "production" ? "tiny" : "common";
 
 app.use(morgan(morganOption));
+app.use(cors());
 
 app.use("/folders", FolderRouter);
 app.use("/notes", NoteRouter);

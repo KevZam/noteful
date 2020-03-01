@@ -18,6 +18,7 @@ FolderRouter.route("/")
       })
       .catch(next);
   })
+
   .post(jsonParser, (req, res, next) => {
     const { id, name } = req.body;
     const newFolder = { name };
